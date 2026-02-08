@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLOWERS FIO - أجمل الورود</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      font-family: 'Tajawal', sans-serif;
+    }
+    
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #FADADD 0%, #F7F3F0 50%, #C8A2C8 100%);
+    }
+    
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(231, 84, 128, 0.15);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #E75480 0%, #C8A2C8 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(231, 84, 128, 0.35);
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.6s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .slide-up {
+      animation: slideUp 0.5s ease-out;
+    }
+    
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(100px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .modal-overlay {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+    }
+    
+    .flower-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23E75480' fill-opacity='0.05'%3E%3Cpath d='M30 30c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10zm-20 0c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #F7F3F0;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #E75480, #C8A2C8);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="h-full bg-[#F7F3F0] overflow-auto">
+  <div id="app" class="min-h-full w-full">
+    
+    <!-- Top Bar -->
+    <div class="bg-gradient-to-r from-[#E75480] to-[#C8A2C8] text-white py-2 px-4">
+      <div class="max-w-7xl mx-auto flex justify-between items-center text-sm">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.784 23.05a.5.5 0 00.632.632l4.016-1.5A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.239 0-4.332-.726-6.016-1.956a.5.5 0 00-.39-.082l-2.87 1.071 1.071-2.87a.5.5 0 00-.082-.39A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          <span id="topPhoneDisplay">طلبات الواتساب: +967770215380</span>
+        </div>
+        <div class="hidden md:flex items-center gap-4">
+          <span>🌸 توصيل سريع</span>
+          <span>💝 ضمان الجودة</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#E75480] to-[#C8A2C8] flex items-center justify-center">
+              <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                <circle cx="12" cy="12" r="3" fill="white"/>
+                <path d="M12 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-4 4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm8 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+              </svg>
+            </div>
+            <div>
+              <h1 id="shopNameDisplay" class="font-display text-2xl font-bold text-[#E75480]">FLOWERS FIO</h1>
+              <p class="text-xs text-[#9CAF88]">أجمل الورود لكل المناسبات</p>
+            </div>
+          </div>
+          
+          <!-- Desktop Nav -->
+          <nav class="hidden lg:flex items-center gap-6">
+            <button onclick="showPage('home')" class="nav-link text-gray-700 hover:text-[#E75480] transition-colors font-medium">الرئيسية</button>
+            <button onclick="showPage('shop')" class="nav-link text-gray-700 hover:text-[#E75480] transition-colors font-medium">المتجر</button>
+            <button onclick="showPage('categories')" class="nav-link text-gray-700 hover:text-[#E75480] transition-colors font-medium">التصنيفات</button>
+            <button onclick="showPage('about')" class="nav-link text-gray-700 hover:text-[#E75480] transition-colors font-medium">من نحن</button>
+            <button onclick="showPage('contact')" class="nav-link text-gray-700 hover:text-[#E75480] transition-colors font-medium">اتصل بنا</button>
+          </nav>
+          
+          <!-- Cart & Mobile Menu -->
+          <div class="flex items-center gap-4">
+            <button onclick="showPage('cart')" class="relative p-2 rounded-full bg-[#FADADD] hover:bg-[#E75480] hover:text-white transition-all">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+              <span id="cartCount" class="absolute -top-1 -right-1 w-5 h-5 bg-[#E75480] text-white text-xs rounded-full flex items-center justify-center font-bold">0</span>
+            </button>
+            
+            <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg hover:bg-[#FADADD] transition-colors">
+              <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden mt-4 pb-4 border-t border-[#FADADD] pt-4">
+          <div class="flex flex-col gap-3">
+            <button onclick="showPage('home'); toggleMobileMenu()" class="text-right py-2 px-4 rounded-lg hover:bg-[#FADADD] text-gray-700 transition-colors">الرئيسية</button>
+            <button onclick="showPage('shop'); toggleMobileMenu()" class="text-right py-2 px-4 rounded-lg hover:bg-[#FADADD] text-gray-700 transition-colors">المتجر</button>
+            <button onclick="showPage('categories'); toggleMobileMenu()" class="text-right py-2 px-4 rounded-lg hover:bg-[#FADADD] text-gray-700 transition-colors">التصنيفات</button>
+            <button onclick="showPage('about'); toggleMobileMenu()" class="text-right py-2 px-4 rounded-lg hover:bg-[#FADADD] text-gray-700 transition-colors">من نحن</button>
+            <button onclick="showPage('contact'); toggleMobileMenu()" class="text-right py-2 px-4 rounded-lg hover:bg-[#FADADD] text-gray-700 transition-colors">اتصل بنا</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="mainContent" class="flex-1">
+      
+      <!-- HOME PAGE -->
+      <div id="homePage" class="page">
+        <!-- Hero Section -->
+        <section class="relative gradient-bg flower-pattern min-h-[500px] flex items-center">
+          <div class="absolute inset-0 bg-gradient-to-l from-transparent via-white/30 to-white/60"></div>
+          <div class="max-w-7xl mx-auto px-4 py-16 relative z-10">
+            <div class="max-w-2xl fade-in">
+              <div class="inline-block px-4 py-2 bg-white/80 rounded-full text-[#E75480] text-sm font-medium mb-6">
+                🌹 مرحباً بكم في عالم الورود
+              </div>
+              <h2 id="heroTitleDisplay" class="font-display text-4xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight">
+                أجمل الورود<br><span class="text-[#E75480]">لكل المناسبات</span>
+              </h2>
+              <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                نقدم لكم أرقى أنواع الورود والباقات الفاخرة لتعبروا عن مشاعركم بأجمل الطرق. توصيل سريع وضمان الجودة.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <button onclick="showPage('shop')" class="btn-primary px-8 py-4 rounded-full text-white font-bold text-lg shadow-lg">
+                  تسوق الآن ←
+                </button>
+                <a href="https://wa.me/967770215380?text=مرحباً، أريد الاستفسار عن باقات الورد" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-full bg-white text-[#25D366] font-bold text-lg shadow-lg hover:shadow-xl transition-all border-2 border-[#25D366] flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                  واتساب
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Decorative Elements -->
+          <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#F7F3F0] to-transparent"></div>
+          <div class="absolute top-10 left-10 w-20 h-20 rounded-full bg-[#C8A2C8]/30 blur-2xl"></div>
+          <div class="absolute bottom-20 right-20 w-32 h-32 rounded-full bg-[#E75480]/20 blur-3xl"></div>
+        </section>
+        
+        <!-- Features -->
+        <section class="py-16 bg-white">
+          <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div class="text-center p-6 rounded-2xl bg-[#FADADD]/30 card-hover">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#E75480] to-[#C8A2C8] flex items-center justify-center">
+                  <span class="text-3xl">🚚</span>
+                </div>
+                <h3 class="font-bold text-lg text-gray-800 mb-2">توصيل سريع</h3>
+                <p class="text-gray-600 text-sm">توصيل في نفس اليوم</p>
+              </div>
+              <div class="text-center p-6 rounded-2xl bg-[#C8A2C8]/20 card-hover">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#C8A2C8] to-[#9CAF88] flex items-center justify-center">
+                  <span class="text-3xl">💯</span>
+                </div>
+                <h3 class="font-bold text-lg text-gra
